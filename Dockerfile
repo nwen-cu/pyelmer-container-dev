@@ -23,18 +23,16 @@ RUN apt-get install -y build-essential git wget curl vim unzip nano nodejs
 RUN apt-get install -y libglu1-mesa libxrender1 libxcursor1 libxft2 libx11-dev libxext-dev libxtst6 libxi6 libxrandr2 libxinerama1 libgl1-mesa-glx libgl1-mesa-dev xvfb x11-xkb-utils xkb-data
 
 # Install JupyterLab, Notebook, and JupyterHub for Binder
-RUN pip3 install --no-cache-dir 'jupyterlab>=3' notebook jupyterhub ipywidgets 'pyvista[all,trame]' trame_jupyter_extension pyvirtualdisplay
+RUN pip3 install --no-cache-dir 'jupyterlab>=3' notebook jupyterhub ipywidgets pyvista
 
 # Install commonly used data science packages
 RUN pip3 install --no-cache-dir numpy pandas matplotlib scipy scikit-learn seaborn plotly
 
 # Install additional specified packages
-RUN pip3 install --no-cache-dir pyelmer objectgmsh meshio datajson
+RUN pip3 install --no-cache-dir pyelmer objectgmsh meshio jupyterview datajson
 
 # Expose port for JupyterLab
 EXPOSE 8888
-
-ENV PYVISTA_TRAME_JUPYTER_MODE=extension
 
 # Set up the user environment for Binder
 ARG NB_USER=jovyan
