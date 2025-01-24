@@ -6,5 +6,4 @@
 Add the following to `.bashrc`
 ```
 export APPTAINER_WRITABLE_TMPFS=true
-export PYVISTA_TRAME_JUPYTER_MODE=extension
 ```
