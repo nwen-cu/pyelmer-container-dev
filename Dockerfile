@@ -31,6 +31,11 @@ RUN pip3 install --no-cache-dir numpy pandas matplotlib scipy scikit-learn seabo
 # Install additional specified packages
 RUN pip3 install --no-cache-dir pyelmer objectgmsh meshio jupyterview datajson
 
+# Copying pyelmer examples
+RUN git clone https://github.com/nemocrys/pyelmer.git && \
+    mv pyelmer/examples ./pyelmer_examples && \
+    mv pyelmer/README.md ./pyelmer_examples
+
 # Expose port for JupyterLab
 EXPOSE 8888
 
