@@ -34,6 +34,7 @@ RUN pip3 install --no-cache-dir pyelmer objectgmsh meshio jupyterview datajson
 # Expose port for JupyterLab
 EXPOSE 8888
 
+################################### Binder Setup ##################################
 # Set up the user environment for Binder
 ARG NB_USER=elmer
 ARG NB_UID=1000
@@ -49,6 +50,7 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
+################################ Binder Setup End #################################
 
 # Set the working directory
 WORKDIR ${HOME}
