@@ -35,7 +35,7 @@ RUN pip3 install --no-cache-dir pyelmer objectgmsh meshio jupyterview datajson
 EXPOSE 8888
 
 # Set up the user environment for Binder
-ARG NB_USER=jovyan
+ARG NB_USER=elmer
 ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
@@ -51,7 +51,7 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
 # Set the working directory
-WORKDIR ${HOME}/workspace
+WORKDIR ${HOME}
 
 # Start JupyterLab
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
